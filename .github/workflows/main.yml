@@ -1,0 +1,7 @@
+name: Deployment to AWS Lambda
+
+on:
+  push:
+    branches:
+    - main
+    - release/*

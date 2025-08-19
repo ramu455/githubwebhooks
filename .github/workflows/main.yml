@@ -16,7 +16,7 @@ jobs:
         run: ls -la
 
       - name: zip folder
-        run: zip python.zip githubwebhooks/lambda_function.py
+        run: zip python.zip lambda_function.py
 
       - name: list folder
         run: ls -la

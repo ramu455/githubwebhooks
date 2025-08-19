@@ -3,5 +3,13 @@ name: Deployment to AWS Lambda
 on:
   push:
     branches:
-    - main
-    - release/*
+      - main
+
+jobs:
+  deploy_to_lambda:
+    name: deploy to aws
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: list folder
+        run: ls -la

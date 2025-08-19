@@ -11,6 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: list folder
         run: ls -la
-         
+
+      - name: zip folder
+        run: zip python.zip lambda_function.py hello.py
+
+      - name: list folder
+        run: ls -la
+
+      - name: cli command
+        run: aws lambda update-function-code --function-name gitwebhookfunction --zip-file fileb://python.zip --region ap-south-1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.GITHUBACTIONSACESS }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.GITHUBACTIONS }}
